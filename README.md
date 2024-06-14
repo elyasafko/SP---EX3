@@ -1,29 +1,96 @@
-# קטאן - מחלקות וירושה
-המתיישבים של קטאן הוא משחק קופסא ל-3 עד 4 שחקנים המשלב הן חשיבה אסטרטגית, ניהול משאבים ויכולת מסחר. מטרת המשחק היא לצבור ראשון 10 נקודות ניצחון.
-את הוראות המשחק המלא ניתן למצוא כאן: https://www.hakubia.com/wp-content/uploads/2021/01/%D7%A7%D7%98%D7%90%D7%9F.pdf.
-במטלה אתם תממשו גרסה פשוטה יותר של המשחק עבור 3 שחקנים.
-## חוקי המשחק
-המשחק מורכב מלוח המכיל 19 חלקות אדמה מוקפות בים. כל חלקת אדמה נותנת משאב כלשהו (חוץ מהמדבר). חלקות האדמה במשחק הן: יער (מניב עץ), גבעות (מניבות לבנים), אדמת מרעה (מניבה צמר), אדמה חקלאית (מניבה שיבולת), הרים (מניבים ברזל), מדבר (לא מניב כלום).
-כל חלקי המפה מקבלים מספר כלשהו בין 2 ל-12. 
-### קלפים, יישובים, ערים ומשאבים
-כל שחקן בעל משאבים (כגון שיבולת, ברזל, לבנים וכו') יכול לרכוש איתם דברים שונים במשחק כמו קלפי פיתוח, יישובים, ערים ודרכים.
-- קלף פיתוח: מחירו של קלף פיתוח הוא ברזל 1, צמר 1 ושיבולת 1. השחקן יכול לקבל אחד מ-3 סוגים שונים של קלפים: 1. קלף קידום: זהו קלף המעניק הטבה לשחקן (לאחר מכן הקלף נעלם). בין הקלפים הללו ניתן למצוא: מונופול - השחקן בוחר משאב כלשהו וכל שאר השחקנים מחוייבים להעביר לו את המשאב הזה. בניית דרכים - השחקן יכול לבנות 2 דרכים במפה ללא עלות. שנת שפע - השחקן זוכה לקבל מהבנק שני קלפים של משאבים לבחירה ולהשתמש בהם באותו התור. 2. אבירים - שחקן המחזיק ב-3 קלפים כאלה, מקבל את קלף הצבא הגדול ביותר המקנה לו 2 נקודות ניצחון (אם איבד אביר אחד, הקלף נלקח מהשחקן. שימו לב שיש בדיוק 3 קלפים כאלה!). 3. קלפי נקודות ניצחון - יש 4 קלפים שונים המעניקים נקודת ניצחון למי שמחזיק בהם.
-- בנייה: ניתן לבנות דרכים, ערים ויישובים בצורה הבאה: 1. קטע דרך: עלותו לבנים 1 ועץ 1. קטע דרך יכול להיות מחובר רק ליישוב (או עיר) בבעלות השחקן או לקטע דרך נוסף. 2. יישוב: עלות היישוב היא לבנה 1, עץ 1, צמר 1 ושיבולת 1. ניתן לבנות יישוב על צומת שאליה מובילה דרך אחת לפחות ומברחק של 2 קטעי דרך מיישוב אחר. בניית יישוב מקנה לשחקן נקודת ניצחון אחת. 3. עיר: עיר יכולה להחליף יישוב קיים. עלות הבנייה היא ברזל 3 ושיבולת 2. ברגע שמשדרגים יישוב לעיר, השחקן מאבד את הנקודה של היישוב ומקבל 2 נקודות על הבנייה. עיר מעניקה לשחקן פי-2 יותר משאבים מכל חבלי הארץ הסמוכים לה.
-- משאבים: כאמור, המשאבים מתקבלים מחבלי הארץ השונים. כאשר שחקן מטיל את קוביות המשחק, כל השחקנים מקבלים משאבים בהתאם למספר שיצא בהטלה (כלומר אם יצא 3 בהטלה, אז שחקנים עם יישובים/ערים הגובלים עם חבלי ארץ בעלי אותו מספר זוכים במשאב).
-- מסחר: שחקנים יכולים לבצע מסחר ביניהם (כלומר להחליף קלפים או משאבים) בהתאם לאיך שהם קובעים.
-### מהלך המשחק
-כל שחקן מתחיל את המשחק עם 2 יישובים ו-2 קטעי דרך המעניקים לו 2 נקודות ניצחון. בנוסף, השחקנים מקבלים משאבים התחלתיים בהתאם למקומות שבהם הם מיקמו את היישובים (משאב אחד מכל משאב אפשרי).
-סדר המשחק נקבע באופן שרירותי (לשיקולכם). בכל תור השחקנים מטילים 2 קוביות. בהתאם לתוצאת ההטלה, השחקנים מקבלים משאבים כמו שפורט מקודם.
-שחקן בתור נתון עושה את הפעולות הבאות לפי הסדר (לאחר הטלת הקוביות):
-- הוא יכול לסחור (כלומר להחליף קלפים או משאבים).
-- הוא יכול לבנות דרכים, יישובים או ערים ויכול לקנות קלפי פיתוח.
-  אם השחקן מנצל את אחד מקלפי הפיתוח שברשותו, התור אוטומטית עובר לשחקן הבא (השחקן יכול לנצל את קלף הפיתוח עוד לפני הטלת הקוביות, במקרה כזה התור עובר לשחקן הבא).
-  אם סכום ההטלה הוא 7, על כל השחקנים בעלי יותר מ-7 קלפי משאבים לבחור מחצית מהקלפים ולהחזיר אותם לערימה.
-  ### סיום המשחק
-  המשחק מסתיים בתור שבו אחד השחקנים הגיע ל-10 או יותר נקודות ניצחון. כדי לנצח במשחק, השחקן צריך שיגיע תורו ובאותו התור יהיו לו 10 נקודות לכל הפחות.
+# Simplified Settlers of Catan
 
+## Table of Contents
+1. [Introduction](#introduction)
+2. [Project Structure](#project-structure)
+3. [Getting Started](#getting-started)
+4. [Classes and Methods](#classes-and-methods)
+5. [Usage](#usage)
+6. [Testing](#testing)
+7. [Future Enhancements](#future-enhancements)
+8. [Contributing](#contributing)
+9. [License](#license)
 
-שימו לב - במטלה הזאת אתם לא מקבלים קבצים לדוגמה מלבד הדמו. עליכם לחשוב לבד על הלוגיקה של המשחק ולממש את החוקים (כמובן שאתם יכולים לממש לפי ראות עיניכם אבל עם הסבר). במטלה הזאת אתם תיבחנו גם על יצירתיות. נסו לבנות את לוח המשחק בצורה שתתאים למשחק המקורי (חשבו איך לממש דבר כזה, אולי להוסיף עוד מחלקות?). כמו כן, **חובה** לצרף בדיקות יחידה למטלה הזאת. הסיבה היא פשוטה - המטלה מורכבת מאוד ואתם נדרשים לבדוק את הקוד שלכם. 
+## Introduction
+This project is a simplified version of the popular board game "The Settlers of Catan". It is implemented in C++ and is designed to accommodate three players. The game involves building settlements, roads, and cities, collecting resources, and earning points to win the game. 
 
-יש להוסיף קובץ Makefile כאשר הפקודה ``` make catan ``` מריצה את התוכנית הראשית שלכם (המדגימה סיבוב אחד במשחק). עליכם להגיש קובץ ```README``` המסביר את המימוש שלכם (כלומר מהם חוקי המשחק שהגדרתם), ההיררכיה של המחלקות ובאילו ספריות השתמשתם. עליכם גם לתאר את כל השיטות שכתבתם, ולכתוב תוכנית ```main``` המריצה סיבוב תקין של המשחק. כמו כן, עליכם לכתוב בתחילת כל קובץ את מספר תעודת הזהות שלכם ואת המייל. אי עמידה בהנחיות תגרור הפחתה בציון. 
-בהצלחה!
+## Project Structure
+The project consists of several files:
+
+- `board.cpp`: Implementation of the board class, which manages the game board.
+- `board.hpp`: Header file for the board class.
+- `catan.cpp`: Implementation of the Catan game class, which controls the game flow.
+- `catan.hpp`: Header file for the Catan game class.
+- `player.cpp`: Implementation of the player class, which manages player-related actions.
+- `player.hpp`: Header file for the player class.
+- `startgame.cpp`: The main file that initializes and starts the game.
+- `test_catan.cpp`: Contains various tests to verify the functionality of the game components.
+
+## Getting Started
+To get started with this project, follow these steps:
+
+1. Clone the repository:
+    ```bash
+    git clone https://github.com/yourusername/simplified-catan.git
+    ```
+
+2. Navigate to the project directory:
+    ```bash
+    cd simplified-catan
+    ```
+
+3. Compile the project using the provided Makefile:
+    ```bash
+    make all
+    ```
+
+4. Run the game:
+    ```bash
+    ./startgame
+    ```
+
+## Classes and Methods
+### Board Class (`board.cpp`, `board.hpp`)
+- **initialize**: Sets up the game board with initial configurations.
+- **shuffleResources**: Randomly shuffles the resources on the board.
+- **placeSettlement**: Places a settlement on the board for a player.
+- **placeRoad**: Places a road on the board.
+- **upgradeSettlement**: Upgrades a settlement to a city.
+- **getVertex**: Retrieves a vertex on the board.
+- **getTile**: Retrieves a tile on the board.
+- **isVertexOccupied**: Checks if a vertex is occupied.
+- **hasAdjacentSettlement**: Checks if there are adjacent settlements to a vertex.
+
+### Catan Class (`catan.cpp`, `catan.hpp`)
+- **initialize**: Initializes the game.
+- **chooseStartingPlayer**: Randomly selects the starting player.
+- **nextPlayer**: Advances to the next player's turn.
+- **previousPlayer**: Reverts to the previous player's turn.
+- **getCurrentPlayer**: Retrieves the current player.
+- **rollDice**: Simulates rolling dice.
+- **endTurn**: Ends the current player's turn.
+- **findPlayerByName**: Finds a player by their name.
+- **buyDevelopmentCard**: Allows a player to buy a development card.
+
+### Player Class (`player.cpp`, `player.hpp`)
+- **getName**: Returns the player's name.
+- **addResource**: Adds resources to the player's inventory.
+- **deductResourcesAmount**: Deducts a specified amount of resources.
+- **printResources**: Prints the player's resources.
+- **increaseNumOfSettlements**: Increases the number of settlements owned by the player.
+- **increaseNumOfCities**: Increases the number of cities owned by the player.
+- **addDevelopmentCard**: Adds a development card to the player's inventory.
+- **removeDevelopmentCard**: Removes a development card from the player's inventory.
+- **getNumOfDevelopmentCards**: Returns the number of development cards owned by the player.
+- **getNumOfKnights**: Returns the number of knights owned by the player.
+- **getNumOfVictoryPoints**: Returns the number of victory points earned by the player.
+
+## Usage
+After compiling the project, you can start a new game by running the `startgame` executable. The game will prompt you to enter player names and then proceed with the game flow, including rolling dice, placing settlements, and building roads.
+
+## Testing
+The project includes a comprehensive set of tests in `test_catan.cpp` to ensure the functionality of the game components. To run the tests, compile the test file and execute it:
+
+```bash
+g++ -o test_catan test_catan.cpp -std=c++11
+./test_catan
