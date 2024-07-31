@@ -264,25 +264,25 @@ namespace ariel
         else if (type == "knight")
         {
             devCards["knight"]--;
-            cout << "Knight card purchased." << endl;
+            cout << "Knight card played." << endl;
         }
         // Deduct year of plenty card
         else if (type == "year of plenty")
         {
             devCards["year of plenty"]--;
-            cout << "Year of plenty card purchased." << endl;
+            cout << "Year of plenty card played." << endl;
         }
         // Deduct monopoly card
         else if (type == "monopoly")
         {
             devCards["monopoly"]--;
-            cout << "Monopoly card purchased." << endl;
+            cout << "Monopoly card played." << endl;
         }
         // Deduct road building card
         else if (type == "road building")
         {
             devCards["road building"]--;
-            cout << "Road building card purchased." << endl;
+            cout << "Road building card played." << endl;
         }
         // Handle unknown type
         else
