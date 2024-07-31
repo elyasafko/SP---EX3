@@ -500,7 +500,7 @@ namespace ariel
             {
                 card = rand() % 5 + 1;
             }
-            
+
             // Determine the type of development card to give the player based on the random number.
             if (card == 1)
             {
@@ -708,9 +708,6 @@ namespace ariel
         // Check if the player has enough resources to play the card
         if (player.hasEnoughResources("year of plenty"))
         {
-            // Deduct the resources used to play the card
-            player.deductResources("year of plenty");
-
             // Prompt the player for the two resources they want
             string resource1, resource2;
             cout << "Enter the first resource: ";
@@ -721,6 +718,9 @@ namespace ariel
             // Give the player one of each resource
             player.addResource(resource1, 1);
             player.addResource(resource2, 1);
+
+            // Deduct the resources used to play the card
+            player.deductResources("year of plenty");
         }
         else
         {
@@ -743,9 +743,6 @@ namespace ariel
         // Check if the player has enough resources to play the card
         if (player.hasEnoughResources("monopoly"))
         {
-            // Deduct the resources used to play the card
-            player.deductResources("monopoly");
-
             // Prompt the player for the resource they want
             string resource;
             cout << "Enter the resource: ";
@@ -769,6 +766,9 @@ namespace ariel
                     cout << "You got " << amount << " " << resource << " from " << other.getName() << "." << endl;
                 }
             }
+            // Deduct the resources used to play the card
+            player.deductResources("monopoly");
+
             cout << "Resources taken successfully." << endl;
         }
         else
@@ -794,6 +794,11 @@ namespace ariel
         // Place two roads on the board
         placeRoad(player, board);
         placeRoad(player, board);
+
+        // Deduct the resources used to play the card
+        player.deductResources("road building");
+
+        cout << "Roads placed successfully." << endl;
     }
 
 }
