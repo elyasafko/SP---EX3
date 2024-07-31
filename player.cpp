@@ -33,7 +33,7 @@ namespace ariel
 
         // Initialize other variables.
         points = 0;           // Start with no points.
-        someOfResources = 4;  // Start with 4 resources.
+        sumeOfResources = 4;  // Start with 4 resources.
         numOfSettlements = 0; // Start with no settlements.
         numOfCities = 0;      // Start with no cities.
     }
@@ -55,7 +55,7 @@ namespace ariel
         resources[resource] += amount;
 
         // Increase the total amount of resources by the given amount.
-        someOfResources += amount;
+        sumeOfResources += amount;
     }
 
     /**
@@ -99,8 +99,8 @@ namespace ariel
             other.resources[receiveResource] -= receiveAmount;
 
             // Update the total amount of resources.
-            someOfResources -= giveAmount;
-            other.someOfResources -= receiveAmount;
+            sumeOfResources -= giveAmount;
+            other.sumeOfResources -= receiveAmount;
             cout << "Trade completed successfully." << endl;
             cout << "your updated resources: " << endl;
             printResources();
@@ -231,7 +231,7 @@ namespace ariel
             resources["brick"]--;
             resources["grain"]--;
             resources["lumber"]--;
-            someOfResources -= 4;
+            sumeOfResources -= 4;
             cout << "Settlement purchased." << endl;
         }
         // Deduct city resources
@@ -239,7 +239,7 @@ namespace ariel
         {
             resources["ore"] -= 3;
             resources["grain"] -= 2;
-            someOfResources -= 5;
+            sumeOfResources -= 5;
             cout << "City purchased." << endl;
         }
         // Deduct road resources
@@ -247,7 +247,7 @@ namespace ariel
         {
             resources["lumber"]--;
             resources["brick"]--;
-            someOfResources -= 2;
+            sumeOfResources -= 2;
             cout << "Road purchased." << endl;
         }
         // Deduct development card resources
@@ -256,7 +256,7 @@ namespace ariel
             resources["ore"]--;
             resources["grain"]--;
             resources["wool"]--;
-            someOfResources -= 3;
+            sumeOfResources -= 3;
             cout << "Development card purchased." << endl;
         }
         // Deduct knight card
@@ -305,27 +305,27 @@ namespace ariel
             if (type == "wool")
             {
                 resources["wool"] -= amount;
-                someOfResources -= amount;
+                sumeOfResources -= amount;
             }
             else if (type == "brick")
             {
                 resources["brick"] -= amount;
-                someOfResources -= amount;
+                sumeOfResources -= amount;
             }
             else if (type == "grain")
             {
                 resources["grain"] -= amount;
-                someOfResources -= amount;
+                sumeOfResources -= amount;
             }
             else if (type == "lumber")
             {
                 resources["lumber"] -= amount;
-                someOfResources -= amount;
+                sumeOfResources -= amount;
             }
             else if (type == "ore")
             {
                 resources["ore"] -= amount;
-                someOfResources -= amount;
+                sumeOfResources -= amount;
             }
         }
     }
@@ -340,10 +340,10 @@ namespace ariel
     void Player::itsSeven()
     {
         // Check if the player has more than 7 resources.
-        if (someOfResources > 7)
+        if (sumeOfResources > 7)
         {
             // Calculate half the resources.
-            int half = someOfResources / 2;
+            int half = sumeOfResources / 2;
 
             // Iterate for half the resources.
             for (int i = 0; i < half; i++)
@@ -371,7 +371,7 @@ namespace ariel
 
                     // Discard one unit of the chosen resource.
                     resources[resource]--;
-                    someOfResources--;
+                    sumeOfResources--;
                 }
             }
         }

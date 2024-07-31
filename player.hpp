@@ -17,7 +17,7 @@ namespace ariel
         string name;
         map<string, int> resources;
         map<string, int> devCards;
-        int someOfResources;
+        int sumeOfResources;
         int numOfSettlements;
         int numOfCities;
         int points;
