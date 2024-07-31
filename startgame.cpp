@@ -55,7 +55,7 @@ void playerTurn(Catan &catan, Board &board)
         cout << "Enter your choice: ";
 
         // Validate the user input.
-        while (!(cin >> choice) || choice < 1 || choice > 8)
+        while (!(cin >> choice) || choice < 1 || choice > 9)
         {
             cin.clear();
             cin.ignore(numeric_limits<streamsize>::max(), '\n');
