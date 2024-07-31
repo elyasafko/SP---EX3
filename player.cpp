@@ -132,7 +132,8 @@ namespace ariel
         sumOfPoints += numOfCities * 2;
 
         // Check if the player has three knights and add the result to the sum of points
-        sumOfPoints += haveAllKnights();
+        if (haveAllKnights())
+            sumOfPoints+=2;
 
         // Check if the player has a Victory Point card and add the result to the sum of points
         sumOfPoints += amountOfVictoryPoint();
