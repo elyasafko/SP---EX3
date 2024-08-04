@@ -90,9 +90,7 @@ namespace ariel
                 {
                     tiles[i][j] = Tile(resources[resourceIndex++], numbers[numberIndex++]);
                 }
-                // Print the tile details for debugging purposes
-                // removed for tests
-                //cout << "Tile " << i << " " << j << " " << tiles[i][j].type << " " << tiles[i][j].number << endl;
+                cout << "Tile " << i << " " << j << " " << tiles[i][j].type << " " << tiles[i][j].number << endl;
             }
         }
 

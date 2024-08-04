@@ -352,12 +352,15 @@ namespace ariel
                 return;
             }
 
-            // Place the road on the board
-            if (board.placeRoad(location, player))
+            // Continue attempting to place the road until a valid location is chosen
+            while (!board.placeRoad(location, player))
             {
-                player.deductResources("road");
-                return;
+                cout << "Invalid location. Please enter a valid location for your road: ";
+                cin >> location;
             }
+
+            // Once a valid location is found, deduct the resources
+            player.deductResources("road");
         }
         else
         {
