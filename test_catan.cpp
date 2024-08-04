@@ -68,7 +68,6 @@ void test_board_isVertexOccupied()
     cout << "test_board_isVertexOccupied passed." << endl;
 }
 
-
 void test_board_hasAdjacentSettlement()
 {
     Board board;
@@ -109,7 +108,6 @@ void test_board_placeRoad()
     board.placeSettlement(0, player, true);
     bool result = board.placeRoad(edge.id, player);
     bool name = (edge.owner == player.getName());
-
 
     assert(result);
     assert(name);
@@ -185,25 +183,6 @@ void test_board_getVertex()
     }
 }
 
-
-void test_board_printBoard()
-{
-    Board board;
-    board.initialize();
-
-    stringstream buffer;
-    streambuf *oldCout = cout.rdbuf(buffer.rdbuf());
-
-    board.printBoard();
-
-    cout.rdbuf(oldCout);
-
-    string output = buffer.str();
-    assert(output.find("road") != string::npos || output.find("settlement") != string::npos || output.find("city") != string::npos);
-
-    cout << "test_board_printBoard passed." << endl;
-}
-
 void test_board_isConnectedToPlayerSettlement()
 {
     Board board;
@@ -238,59 +217,6 @@ void test_player_addResource()
     cout << "test_player_addResource passed." << endl;
 }
 
-void test_player_trade()
-{
-    Player player1("Alice");
-    Player player2("Bob");
-
-    player1.addResource("wool", 3);
-    player2.addResource("brick", 3);
-
-    player1.trade(player2, "wool", "brick", 2, 2);
-
-    assert(player1.amountOfResources("wool") == 1);
-    assert(player1.amountOfResources("brick") == 2);
-    assert(player2.amountOfResources("wool") == 2);
-    assert(player2.amountOfResources("brick") == 1);
-
-    cout << "test_player_trade passed." << endl;
-}
-
-void test_player_getPoints()
-{
-    Player player("Alice");
-    player.increaseNumOfSettlements();
-    player.increaseNumOfCities();
-    player.addDevelopmentCard("knight");
-    player.addDevelopmentCard("victory point");
-
-    assert(player.getPoints() == 4);
-
-    cout << "test_player_getPoints passed." << endl;
-}
-
-void test_player_hasEnoughResources()
-{
-    Player player("Alice");
-    player.addResource("wool", 1);
-    player.addResource("brick", 1);
-    player.addResource("grain", 1);
-    player.addResource("lumber", 1);
-
-    assert(player.hasEnoughResources("settlement"));
-    player.deductResources("settlement");
-
-    player.addResource("ore", 3);
-    player.addResource("grain", 2);
-
-    assert(player.hasEnoughResources("city"));
-    player.deductResources("city");
-
-    assert(!player.hasEnoughResources("road"));
-
-    cout << "test_player_hasEnoughResources passed." << endl;
-}
-
 void test_player_deductResourcesAmount()
 {
     Player player("Alice");
@@ -300,22 +226,6 @@ void test_player_deductResourcesAmount()
     assert(player.amountOfResources("wool") == 1);
 
     cout << "test_player_deductResourcesAmount passed." << endl;
-}
-
-void test_player_itsSeven()
-{
-    Player player("Alice");
-    player.addResource("wool", 3);
-    player.addResource("brick", 3);
-    player.addResource("grain", 3);
-    player.addResource("lumber", 3);
-
-    player.itsSeven();
-
-    assert(player.amountOfResources("wool") + player.amountOfResources("brick") +
-           player.amountOfResources("grain") + player.amountOfResources("lumber") <= 7);
-
-    cout << "test_player_itsSeven passed." << endl;
 }
 
 void test_player_printResources()
@@ -419,7 +329,6 @@ void test_player_getNumOfKnights()
     cout << "test_player_getNumOfKnights passed." << endl;
 }
 
-
 void test_player_getNumOfCities()
 {
     Player player("Alice");
@@ -453,29 +362,6 @@ void test_player_getNumOfVictoryPoints()
     cout << "test_player_getNumOfVictoryPoints passed." << endl;
 }
 
-void test_player_getNumOfResources()
-{
-    Player player("Alice");
-    player.addResource("wool", 2);
-    player.addResource("brick", 3);
-
-    assert(player.amountOfResources("wool") == 2);
-    assert(player.amountOfResources("brick") == 3);
-
-    cout << "test_player_getNumOfResources passed." << endl;
-}
-
-void test_player_haveResources()
-{
-    Player player("Alice");
-    player.addResource("wool", 2);
-
-    assert(player.haveResources("wool", 2));
-    assert(!player.haveResources("wool", 3));
-
-    cout << "test_player_haveResources passed." << endl;
-}
-
 void test_player_getResource()
 {
     Player player("Alice");
@@ -497,18 +383,6 @@ void test_player_removeResource()
     cout << "test_player_removeResource passed." << endl;
 }
 
-void test_player_hasResource()
-{
-    Player player("Alice");
-    player.addResource("lumber", 2);
-
-    assert(player.haveResources("lumber", 1));
-    assert(player.haveResources("lumber", 2));
-    assert(!player.haveResources("lumber", 3));
-
-    cout << "test_player_hasResource passed." << endl;
-}
-
 void test_player_getAmountOfDevCards()
 {
     Player player("Alice");
@@ -524,8 +398,8 @@ void test_catan_ChooseStartingPlayer()
     Catan game(p1, p2, p3);
     game.ChooseStartingPlayer();
 
-    assert(game.getCurrentPlayer().getName() == "Alice" || 
-           game.getCurrentPlayer().getName() == "Bob" || 
+    assert(game.getCurrentPlayer().getName() == "Alice" ||
+           game.getCurrentPlayer().getName() == "Bob" ||
            game.getCurrentPlayer().getName() == "Charlie");
 
     cout << "test_catan_ChooseStartingPlayer passed." << endl;
@@ -621,22 +495,6 @@ void test_catan_getCurrentPlayer()
     cout << "test_catan_getCurrentPlayer passed." << endl;
 }
 
-void test_catan_isGameEnded()
-{
-    Player p1("Alice"), p2("Bob"), p3("Charlie");
-    Catan game(p1, p2, p3);
-
-    assert(!game.isGameEnded());
-
-    for (int i = 0; i < 10; ++i)
-    {
-        p1.increaseNumOfSettlements();
-    }
-    assert(game.isGameEnded());
-
-    cout << "test_catan_isGameEnded passed." << endl;
-}
-
 void test_catan_findPlayerByName()
 {
     Player p1("Alice"), p2("Bob"), p3("Charlie");
@@ -648,62 +506,6 @@ void test_catan_findPlayerByName()
     assert(game.findPlayerByName("Dave") == nullptr);
 
     cout << "test_catan_findPlayerByName passed." << endl;
-}
-
-void test_catan_placeSettlement()
-{
-    Player p1("Alice"), p2("Bob"), p3("Charlie");
-    Catan game(p1, p2, p3);
-    Board &board = game.getBoard();
-
-    game.placeSettelemnt(p1, board);
-
-    cout << "test_catan_placeSettlement passed." << endl;
-}
-
-void test_catan_upgradeSettlement()
-{
-    Player p1("Alice"), p2("Bob"), p3("Charlie");
-    Catan game(p1, p2, p3);
-    Board &board = game.getBoard();
-
-    game.placeSettelemnt(p1, board);
-    game.upgradeSettlement(p1, board);
-
-    cout << "test_catan_upgradeSettlement passed." << endl;
-}
-
-void test_catan_placeRoad()
-{
-    Player p1("Alice"), p2("Bob"), p3("Charlie");
-    Catan game(p1, p2, p3);
-    Board &board = game.getBoard();
-
-    game.placeRoad(p1, board);
-
-    cout << "test_catan_placeRoad passed." << endl;
-}
-
-void test_catan_playDevelopmentCard()
-{
-    Player p1("Alice"), p2("Bob"), p3("Charlie");
-    Catan game(p1, p2, p3);
-
-    p1.addDevelopmentCard("year of plenty");
-
-    game.playDevelopmentCard(p1);
-
-    cout << "test_catan_playDevelopmentCard passed." << endl;
-}
-
-void test_catan_trade()
-{
-    Player p1("Alice"), p2("Bob"), p3("Charlie");
-    Catan game(p1, p2, p3);
-
-    game.trade(p1);
-
-    cout << "test_catan_trade passed." << endl;
 }
 
 void test_catan_buyDevelopmentCard()
@@ -719,31 +521,6 @@ void test_catan_buyDevelopmentCard()
 
     cout << "test_catan_buyDevelopmentCard passed." << endl;
 }
-
-void test_catan_sellKnight()
-{
-    Player p1("Alice"), p2("Bob"), p3("Charlie");
-    Catan game(p1, p2, p3);
-
-    p1.addKnights(3);
-
-    assert(game.sellKnight(p1, p2));
-
-    cout << "test_catan_sellKnight passed." << endl;
-}
-
-void test_catan_buyKnight()
-{
-    Player p1("Alice"), p2("Bob"), p3("Charlie");
-    Catan game(p1, p2, p3);
-
-    p2.addKnights(3);
-
-    assert(game.buyKnight(p1, p2));
-
-    cout << "test_catan_buyKnight passed." << endl;
-}
-
 
 int main()
 {
@@ -763,11 +540,7 @@ int main()
     // Player tests
     test_player_getName();
     test_player_addResource();
-    //test_player_trade();
-    //test_player_getPoints();
-    //test_player_hasEnoughResources();
     test_player_deductResourcesAmount();
-    //test_player_itsSeven();
     test_player_printResources();
     test_player_getNumOfSettlementsAndCities();
     test_player_increaseNumOfSettlements();
@@ -777,11 +550,8 @@ int main()
     test_player_getNumOfDevelopmentCards();
     test_player_getNumOfKnights();
     test_player_getNumOfVictoryPoints();
-    //test_player_getNumOfResources();
-    //test_player_haveResources();
     test_player_getResource();
     test_player_removeResource();
-    //test_player_hasResource();
     test_player_getAmountOfDevCards();
 
     // Catan tests
@@ -793,16 +563,8 @@ int main()
     test_catan_rollDice();
     test_catan_endTurn();
     test_catan_getCurrentPlayer();
-    //test_catan_isGameEnded();
     test_catan_findPlayerByName();
-    //test_catan_placeSettlement();
-    //test_catan_upgradeSettlement();
-    //test_catan_placeRoad();
-    //test_catan_playDevelopmentCard();
-    //test_catan_trade();
     test_catan_buyDevelopmentCard();
-    //test_catan_sellKnight();
-    //test_catan_buyKnight();
 
     cout << "All tests passed!" << endl;
     return 0;
